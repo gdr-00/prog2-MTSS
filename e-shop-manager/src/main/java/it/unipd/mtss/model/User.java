@@ -34,6 +34,9 @@ public class User {
         return age;
     }
 
+    public boolean isUnder18() {
+        return age < 18;
+    }
     @Override
     public boolean equals(Object _object) {
         if (this == _object) {
@@ -55,5 +58,14 @@ public class User {
         }
 
         return getAge() == _user.getAge();
+
+    }
+    @Override
+    public int hashCode() {
+        return name.hashCode() * 29 + age * 37;
+    }
+
+    public boolean isWinner() {
+        return this.isUnder18() && this.hashCode() % 4 == 0;
     }
 }

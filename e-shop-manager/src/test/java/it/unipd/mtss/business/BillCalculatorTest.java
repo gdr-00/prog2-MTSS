@@ -132,4 +132,74 @@ public class BillCalculatorTest {
         assertEquals(7, bill.getOrderPrice(listItems, user), 0.01);
     }
 
+    @Test
+    public void testIsNotFreeBecauseTime() {
+        EItem item = new EItem(ItemType.PROCESSOR, "Processor not in time", 1.99);
+        item.setTime(LocalTime.of(19, 01, 0));
+
+        user = new User("_name1", 17);
+
+        assertFalse(bill.isFree(item, user));
+    }
+
+    @Test
+    public void testIsNotFreeBecauseUnlucky() {
+        EItem item = new EItem(ItemType.PROCESSOR, "Processor not lucky", 1.99);
+        item.setTime(LocalTime.of(18, 01, 0));
+
+        user = new User("_name", 17);
+
+        assertFalse(bill.isFree(item, user));
+    }
+
+    @Test
+    public void testIsNotFreeBecauseTooOld() {
+        EItem item = new EItem(ItemType.PROCESSOR, "Processor very old", 1.99);
+        item.setTime(LocalTime.of(18, 01, 0));
+
+        user = new User("_name1", 18);
+
+        assertFalse(bill.isFree(item, user));
+    }
+
+    @Test
+    public void testIsNotFreeBecauseOldUnlucky() {
+        EItem item = new EItem(ItemType.PROCESSOR, "Processor unlucky and old", 1.99);
+        item.setTime(LocalTime.of(18, 01, 0));
+
+        user = new User("_name1", 18);
+
+        assertFalse(bill.isFree(item, user));
+    }
+
+    @Test
+    public void test1Winner() throws BillException {
+        listItems.get(listItems.size() - 1).setTime(LocalTime.of(18, 01, 0));
+        user = new User("_name1", 17);
+        assertEquals(0, bill.getOrderPrice(listItems, user), 0.01);
+    }
+
+    @Test
+    public void test10Winner() throws BillException {
+        listItems.get(listItems.size() - 1).setTime(LocalTime.of(18, 01, 0));
+
+        for (int i = 0; i < 10; i++) {
+            user = new User("_name1", 17);
+            assertEquals(0, bill.getOrderPrice(listItems, user), 0.01);
+        }
+    }
+
+    @Test
+    public void test10WinnerAnd11thNotWinner() throws BillException {
+        listItems.get(listItems.size() - 1).setTime(LocalTime.of(18, 45, 0));
+
+        for (int i = 0; i < 10; i++) {
+            user = new User("_name1", 17);
+            assertEquals(0, bill.getOrderPrice(listItems, user), 0.01);
+        }
+
+        user = new User("_name1", 17);
+        assertEquals(897.1, bill.getOrderPrice(listItems, user), 0.01);
+    }
+    
 }

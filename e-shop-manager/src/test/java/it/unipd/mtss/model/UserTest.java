@@ -91,4 +91,41 @@ public class UserTest {
     public void testDifferentClass() {
         assertFalse(user.equals(new Object()));
     }
+
+    @Test
+    public void testUserUnder18() {
+        user = new User(name, 17);
+        assertTrue(user.isUnder18());
+    }
+
+    @Test
+    public void testUserIs18() {
+        user = new User(name, 18);
+        assertFalse(user.isUnder18());
+    }
+
+    @Test
+    public void testUserOver18() {
+        user = new User(name, 19);
+        assertFalse(user.isUnder18());
+    }
+
+    @Test
+    public void testIsWinner() {
+        user = new User("_name1", 17);
+        assertTrue(user.isWinner());
+    }
+    @Test
+    public void testHashCode() {
+        user = new User("_name1", 17);
+        assertEquals(301897024, user.hashCode());
+    }
+
+    @Test
+    public void testIsNotWinner() {
+        user = new User("_name2", 17);
+        assertFalse(user.isWinner());
+    }
+
+
 }

@@ -5,6 +5,8 @@
 package it.unipd.mtss.business;
 
 import java.util.List;
+import java.time.LocalTime;
+import java.util.Random;
 
 import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.EItem;
@@ -16,6 +18,7 @@ import it.unipd.mtss.model.OffertaMouseTastiere;
 
 public class BillCalculator implements Bill {
     private double total;
+    private int regali = 10;
 
     public double getOrderPrice(List<EItem> itemsOrdered, User user)
             throws BillException,IllegalArgumentException {
@@ -64,6 +67,16 @@ public class BillCalculator implements Bill {
             total += 2;
         }
 
+        EItem last = itemsOrdered.get(itemsOrdered.size() - 1);
+
+        if (isFree(last, user)) {
+            total = 0;
+            regali--;
+        }
+
         return total;
+    }
+    public boolean isFree(EItem item, User user) {
+        return item.isDuringWinningTime() && user.isWinner() && regali > 0;
     }
 }
