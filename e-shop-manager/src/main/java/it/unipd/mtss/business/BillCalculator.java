@@ -5,12 +5,12 @@
 package it.unipd.mtss.business;
 
 import java.util.List;
-import it.unipd.mtss.business.exception.BillException;
-import it.unipd.mtss.model.DiscountProcessori;
-import it.unipd.mtss.model.OffertaMouseTastiere;
 import it.unipd.mtss.model.EItem;
-import it.unipd.mtss.model.OffertaMouse;
 import it.unipd.mtss.model.User;
+import it.unipd.mtss.model.DiscountProcessori;
+import it.unipd.mtss.model.Discount1000;
+import it.unipd.mtss.model.OffertaMouse;
+import it.unipd.mtss.model.OffertaMouseTastiere;
 
 public class BillCalculator implements Bill {
     private double total;
@@ -48,8 +48,12 @@ public class BillCalculator implements Bill {
             total -= offertaMouseTastiere.getDiscount(itemsOrdered);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        } try {
+            Discount1000 Discount1000 = new Discount1000();
+            total -= Discount1000.getDiscount(itemsOrdered);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
         return total;
     }
 }
