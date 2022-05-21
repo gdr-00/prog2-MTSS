@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">e-shop-manager</a> &gt; <a href="index.source.html" class="el_package">it.unipd.mtss.model</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">////////////////////////////////////////////////////////////////////
+// Gabriele Da Re 2008071
+// Claudio Giaretta 1225419
+////////////////////////////////////////////////////////////////////
+
+package it.unipd.mtss.model;
+
+import java.util.Objects;
+
+public class User {
+    private final String name;
+    private final int age;
+
+<span class="fc" id="L14">    public User(String _name, int _age) throws IllegalArgumentException {</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (_name == null) {</span>
+<span class="fc" id="L16">            throw new IllegalArgumentException(&quot;Il nome non deve essere nullo&quot;);</span>
+        }
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if (_age &lt; 0) {</span>
+<span class="fc" id="L19">            throw new IllegalArgumentException(&quot;L'età non deve essere negativa&quot;);</span>
+        }
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (_name == &quot;&quot;) {</span>
+<span class="fc" id="L22">            throw new IllegalArgumentException(&quot;Il nome non deve essere vuoto&quot;);</span>
+        }
+
+<span class="fc" id="L25">        this.name = _name;</span>
+<span class="fc" id="L26">        this.age = _age;</span>
+<span class="fc" id="L27">    }</span>
+
+    public String getName() {
+<span class="fc" id="L30">        return name;</span>
+    }
+
+    public int getAge() {
+<span class="fc" id="L34">        return age;</span>
+    }
+
+    @Override
+    public boolean equals(Object _object) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (this == _object) {</span>
+<span class="fc" id="L40">            return true;</span>
+        }
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (_object == null) {</span>
+<span class="fc" id="L44">            return false;</span>
+        }
+
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (getClass() != _object.getClass()) {</span>
+<span class="fc" id="L48">            return false;</span>
+        }
+
+<span class="fc" id="L51">        User _user = (User) _object;</span>
+
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (!Objects.equals(getName(), _user.getName())) {</span>
+<span class="fc" id="L54">            return false;</span>
+        }
+
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        return getAge() == _user.getAge();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
