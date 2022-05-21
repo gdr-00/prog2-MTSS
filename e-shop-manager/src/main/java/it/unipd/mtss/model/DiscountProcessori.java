@@ -14,11 +14,11 @@ public class DiscountProcessori implements Discount {
     public double getDiscount(List<EItem> items) throws DiscountException, IllegalArgumentException {
 
         if (items == null) {
-            throw new IllegalArgumentException("La lista non può essere nulla per discount processori");
+            throw new IllegalArgumentException("La lista non può essere nulla");
         }
 
         if (items.size() < 5) {
-            throw new IllegalArgumentException("La lista non può avere meno di 5 elementi per discount processori");
+            throw new IllegalArgumentException("La lista non può avere meno di 5 elementi");
         }
 
         int P_number = 0;

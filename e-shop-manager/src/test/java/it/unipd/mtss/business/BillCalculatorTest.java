@@ -40,7 +40,7 @@ public class BillCalculatorTest {
 
     @Test
     public void testGetOrderPrice() throws BillException {
-        assertEquals(897.1, bill.getOrderPrice(listItems, user), 0.0001);
+        assertEquals(958.09, bill.getOrderPrice(listItems, user), 0.0001);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -60,19 +60,17 @@ public class BillCalculatorTest {
 
     @Test
     public void testDiscountProcessori() throws BillException {
-        listItems = new ArrayList<EItem>();
         listItems.add(new EItem(ItemType.PROCESSOR, "Intel i3 3580u", 100.10));
         listItems.add(new EItem(ItemType.PROCESSOR, "intel i7 7700k", 308.12));
         listItems.add(new EItem(ItemType.PROCESSOR, "ryzen 7 6600x", 430.23));
         listItems.add(new EItem(ItemType.PROCESSOR, "ryzen 7 5800x", 370.99));
         listItems.add(new EItem(ItemType.PROCESSOR, "intel i9 9900", 699.99));
 
-        assertEquals(1859.38, bill.getOrderPrice(listItems, user), 0.01);
+        assertEquals(2817.469, bill.getOrderPrice(listItems, user), 0.01);
     }
 
     @Test
     public void testMouseOffer() throws BillException {
-        listItems = new ArrayList<EItem>();
         listItems.add(new EItem(ItemType.MOUSE, "glorius", 10.10));
         listItems.add(new EItem(ItemType.MOUSE, "logitech", 38.12));
         listItems.add(new EItem(ItemType.MOUSE, "sbruders", 43.23));
@@ -84,18 +82,6 @@ public class BillCalculatorTest {
         listItems.add(new EItem(ItemType.MOUSE, "dsaofdfo", 37.99));
         listItems.add(new EItem(ItemType.MOUSE, "asdcvi", 99.99));
 
-        assertEquals(418.76, bill.getOrderPrice(listItems, user), 0.01);
+        assertEquals(1386.93, bill.getOrderPrice(listItems, user), 0.01);
     }
-
-    @Test
-    public void testOffertaMouseTastiere() throws BillException {
-        listItems = new ArrayList<EItem>();
-        listItems.add(new EItem(ItemType.MOUSE, "glorius", 47.10));
-        listItems.add(new EItem(ItemType.KEYBOARD, "tastiera fantastica", 62.32));
-        listItems.add(new EItem(ItemType.MOUSE, "mouse nuovo", 65.00));
-        listItems.add(new EItem(ItemType.KEYBOARD, "tastiera pazzesca", 100.00));
-
-        assertEquals(227.32, bill.getOrderPrice(listItems, user), 0.01);
-    }
-
 }
