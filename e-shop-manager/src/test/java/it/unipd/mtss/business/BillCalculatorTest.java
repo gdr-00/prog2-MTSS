@@ -120,5 +120,16 @@ public class BillCalculatorTest {
 
         assertEquals(1364.18, bill.getOrderPrice(listItems, user), 0.01);
     }
+    
+    @Test
+    public void testCommssion2euro() throws BillException {
+        listItems.removeAll(listItems);
+        listItems.add(new EItem(ItemType.MOTHERBOARD, "Tastiera di Gesù", 1));
+        listItems.add(new EItem(ItemType.MOUSE, "Mickey", 2));
+        listItems.add(new EItem(ItemType.MOTHERBOARD, "How I Met your", 1));
+        listItems.add(new EItem(ItemType.PROCESSOR, "Brain", 1));
+
+        assertEquals(7, bill.getOrderPrice(listItems, user), 0.01);
+    }
 
 }

@@ -12,7 +12,6 @@ public class BillException extends Exception {
     public BillException(String error) {
         msg = error;
     }
-
     public String toString() {
         return "BillException thrown: ".concat(msg);
     }

@@ -59,6 +59,11 @@ public class BillCalculator implements Bill {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        if (total < 10) {
+            total += 2;
+        }
+
         return total;
     }
 }
