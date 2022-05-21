@@ -53,6 +53,16 @@ public class BillCalculatorTest {
         assertEquals(958.09, bill.getOrderPrice(new ArrayList<EItem>(), user), 0.0001);
     }
 
+    @Test(expected = BillException.class)
+    public void testMax30Item() throws BillException {
+        listItems.removeAll(listItems);
+
+        for (int i = 0; i < 31; i++) {
+            listItems.add(new EItem(ItemType.MOTHERBOARD, "motherboard", 100.00));
+        }
+        assertEquals(3000, bill.getOrderPrice(listItems, user), 0.001);
+    }
+    
     @Test(expected = IllegalArgumentException.class)
     public void testUserNull() throws BillException {
         assertEquals(958.09, bill.getOrderPrice(listItems, null), 0.0001);
