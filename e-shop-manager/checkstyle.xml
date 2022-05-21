@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+"http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+    <module name="TreeWalker">
+        <module name="BooleanExpressionComplexity">
+            <property name="max" value="5"/>
+        </module>
+        <module name="CyclomaticComplexity">
+            <property name="max" value="4"/>
+            <property name="tokens" value="LITERAL_WHILE, LITERAL_DO"/> <!--verifica sui cicli while e do while-->
+        </module>
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="80"/>
+            <property name="countEmpty" value="false"/>
+        </module> <!--max 30 righe per metodo senza contare righe vuote-->
+        <module name="EmptyCatchBlock">
+            <property name="exceptionVariableName" value="expected|ignore"/> <!--una catch per non tornare errore deve avere o un commento oppure la variabile deve chiamarsi expected oppure ignore-->
+        </module>
+        <module name="AvoidStarImport"/> <!--non permette di importare tutte le classi di un pacchetto con *-->
+        <module name="IllegalImport"/>
+       <module name="NeedBraces">
+          <property name="allowSingleLineStatement" value="true"/>
+       </module><!--non permette di fare statement senza le parentesi graffe, permette quelli in riga-->
+    </module>
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+        <property name="fileExtensions" value="none"/>
+    </module> <!--non permette di usare il tab nei file con estensione none e reporta ogni linea che viola la direttiva-->
+    <module name="FileLength">
+        <property name="max" value="1500"/> <!--max 1500 righe per file-->
+    </module>
+    <module name="LineLength">
+        <property name="max" value="220"/> <!--max 120 caratteri per riga-->
+    </module>
+    <module name="Header">
+        <property name="headerFile" value="config/java.header"/>
+        <property name="fileExtensions" value="java"/>
+    </module>
+</module>
+
+
