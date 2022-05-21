@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-e-shop-manager,it.unipd.mtss.business,BillCalculator,0,46,0,8,0,11,0,6,0,2
-e-shop-manager,it.unipd.mtss.model.exception,DiscountException,0,11,0,0,0,4,0,2,0,2
-e-shop-manager,it.unipd.mtss.business.exception,BillException,0,11,0,0,0,4,0,2,0,2
-e-shop-manager,it.unipd.mtss.model,EItem,0,52,0,8,0,16,0,8,0,4
-e-shop-manager,it.unipd.mtss.model,User,0,73,0,16,0,22,0,12,0,4
-e-shop-manager,it.unipd.mtss.model,EItem.ItemType,0,27,0,0,0,2,0,1,0,1
-e-shop-manager,it.unipd.mtss.model,DiscountProcessori,0,64,0,14,0,18,0,9,0,2

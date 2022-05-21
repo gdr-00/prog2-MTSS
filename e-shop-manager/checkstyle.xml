@@ -12,7 +12,7 @@
         </module>
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF"/>
-            <property name="max" value="50"/>
+            <property name="max" value="80"/>
             <property name="countEmpty" value="false"/>
         </module> <!--max 30 righe per metodo senza contare righe vuote-->
         <module name="EmptyCatchBlock">

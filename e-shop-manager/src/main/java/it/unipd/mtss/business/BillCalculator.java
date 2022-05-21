@@ -5,8 +5,9 @@
 package it.unipd.mtss.business;
 
 import java.util.List;
-
+import it.unipd.mtss.business.exception.BillException;
 import it.unipd.mtss.model.DiscountProcessori;
+import it.unipd.mtss.model.OffertaMouseTastiere;
 import it.unipd.mtss.model.EItem;
 import it.unipd.mtss.model.OffertaMouse;
 import it.unipd.mtss.model.User;
@@ -35,9 +36,16 @@ public class BillCalculator implements Bill {
 
             DiscountProcessori discountProcessori = new DiscountProcessori();
             total -= discountProcessori.getDiscount(itemsOrdered);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } try {
             OffertaMouse offertaMouse = new OffertaMouse();
             total -= offertaMouse.getDiscount(itemsOrdered);
-
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } try {
+            OffertaMouseTastiere offertaMouseTastiere = new OffertaMouseTastiere();
+            total -= offertaMouseTastiere.getDiscount(itemsOrdered);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

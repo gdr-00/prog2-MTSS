@@ -1,9 +1,0 @@
-it/unipd/mtss/business/exception/BillException.class
-it/unipd/mtss/model/DiscountProcessori.class
-it/unipd/mtss/business/BillCalculator.class
-it/unipd/mtss/model/Discount.class
-it/unipd/mtss/model/EItem.class
-it/unipd/mtss/model/EItem$ItemType.class
-it/unipd/mtss/business/Bill.class
-it/unipd/mtss/model/exception/DiscountException.class
-it/unipd/mtss/model/User.class

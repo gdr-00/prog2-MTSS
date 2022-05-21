@@ -18,7 +18,7 @@ public class OffertaMouse implements Discount {
         }
 
         if (items.size() < 10) {
-            throw new IllegalArgumentException("La lista non può avere meno di 10 elementi");
+            throw new IllegalArgumentException("La lista non può avere meno di 10 elementi per un offertamouse");
         }
 
         int M_number = 0;
