@@ -42,7 +42,7 @@ public class OffertaMouseTastiereTest {
 
     @Test
     public void testGetOfferKeyboardLessexpensive() throws DiscountException {
-        listItems = new ArrayList<EItem>();
+        listItems.removeAll();
         listItems.add(new EItem(ItemType.MOUSE, "razer", 180.00));
         listItems.add(new EItem(ItemType.KEYBOARD, "logitech", 150.00));
         assertEquals(150.0, discount.getDiscount(listItems), 0.01);
