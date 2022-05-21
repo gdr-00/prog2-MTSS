@@ -20,4 +20,4 @@ jobs:
 
       - name: Static Analysis java
         working-directory: ./e-shop-manager
-        run: mvn checkstyle:checkstyle
+        run: mvn checkstyle:check
